@@ -1,11 +1,21 @@
-import { API_URL } from './constants';
+import { API_URL, API_ENDPOINTS } from './constants';
 
 export const getMemes = async () => {
-  const memesData = await fetch(`${API_URL}/api/memes`);
-  if (!memesData.ok) {
-    throw new Error('Failed to fetch memes');
+  try {
+    const memesData = await fetch(`${API_URL}${API_ENDPOINTS.MEMES}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!memesData.ok) {
+      throw new Error(`Failed to fetch memes: ${memesData.status}`);
+    }
+
+    const memesResponse = await memesData.json();
+    return memesResponse.data;
+  } catch (error) {
+    console.error('Error fetching memes:', error);
+    throw error;
   }
-  const memesResponse = await memesData.json();
-  const memes = memesResponse.data;
-  return memes;
 };
