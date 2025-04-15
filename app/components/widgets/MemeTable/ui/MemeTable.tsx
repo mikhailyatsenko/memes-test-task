@@ -9,8 +9,9 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Button,
 } from '@heroui/react';
+
+import { EditModal } from '@/components/entities/EditModal';
 
 export const MemeTable: React.FC<MemeTableProps> = ({ memes }) => {
   console.log(memes);
@@ -28,7 +29,7 @@ export const MemeTable: React.FC<MemeTableProps> = ({ memes }) => {
             <TableCell>{meme.name}</TableCell>
             <TableCell>{meme.likes}</TableCell>
             <TableCell>
-              <Button>Edit</Button>
+              <EditModal meme={meme} />
             </TableCell>
           </TableRow>
         ))}

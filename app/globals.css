@@ -46,3 +46,9 @@
 body {
   @apply bg-background text-foreground antialiased;
 }
+
+@layer components {
+  #edit-meme-form label {
+    margin-top: -20px;
+  }
+}
