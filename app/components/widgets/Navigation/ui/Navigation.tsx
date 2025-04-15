@@ -12,8 +12,10 @@ import {
 import Link from 'next/link';
 import { useState } from 'react';
 import { menuItems } from '../constants';
+import { ThemeToggle } from '@/components/entities/ToggleTheme';
+import { NavigationProps } from '../types';
 
-export const Navigation = () => {
+export const Navigation = ({ serverThemeCookie }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -32,6 +34,12 @@ export const Navigation = () => {
             <Link href={item.href}>{item.label}</Link>
           </NavbarItem>
         ))}
+      </NavbarContent>
+
+      <NavbarContent justify="end">
+        <NavbarItem>
+          <ThemeToggle serverThemeCookie={serverThemeCookie} />
+        </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item) => (

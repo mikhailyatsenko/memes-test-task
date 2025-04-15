@@ -1,4 +1,4 @@
-import { Meme } from '@/api/memes/types';
+import { Meme } from './types';
 
 export const mockMemes: Meme[] = [
   {

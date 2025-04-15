@@ -1,5 +1,5 @@
 import { Meme } from '@/data/types';
 
-export interface MemeTableProps {
+export interface MemeListProps {
   memes: Meme[];
 }
