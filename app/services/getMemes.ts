@@ -1,5 +1,7 @@
+import { API_URL } from './constants';
+
 export const getMemes = async () => {
-  const memesData = await fetch('http://localhost:3000/api/memes');
+  const memesData = await fetch(`${API_URL}/api/memes`);
   if (!memesData.ok) {
     throw new Error('Failed to fetch memes');
   }

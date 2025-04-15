@@ -1,1 +1,0 @@
-export { useMemes } from './useMemes';

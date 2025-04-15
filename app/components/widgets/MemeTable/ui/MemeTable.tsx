@@ -14,7 +14,6 @@ import {
 import { EditModal } from '@/components/entities/EditModal';
 
 export const MemeTable: React.FC<MemeTableProps> = ({ memes }) => {
-  console.log(memes);
   return (
     <Table isStriped aria-label={MEMES_TABLE_ARIA_LABEL}>
       <TableHeader>
