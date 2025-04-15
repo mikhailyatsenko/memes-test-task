@@ -14,6 +14,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { EditModalSchema, editModalSchema } from '../model';
 import { EDIT_MODAL_CONSTANTS } from '../constants';
+import { onSave } from '../lib/onSave';
 
 export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -34,9 +35,12 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
   });
 
   const onSubmit = (data: EditModalSchema) => {
-    console.log(data);
-    // Here you would typically update the meme data
-    // onClose();
+    try {
+      onSave(data);
+      onClose();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

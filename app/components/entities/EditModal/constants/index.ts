@@ -19,3 +19,5 @@ export const EDIT_MODAL_CONSTANTS = {
   MIN_LIKES: 0,
   MAX_LIKES: 99,
 } as const;
+
+export const MEMES_STORAGE_KEY = 'memes';
