@@ -31,17 +31,20 @@ export const MemeList: React.FC<MemeListProps> = ({ memes }) => {
                 radius="lg"
                 shadow="sm"
                 src={meme.imageUrl}
-                width="100%"
+                width={300}
+                height={300}
               />
             </CardBody>
-            <CardFooter className="text-small justify-between flex-nowrap gap-2">
+            <CardFooter className="text-small flex flex-row justify-between flex-nowrap gap-4">
               <b className="overflow-hidden text-ellipsis whitespace-nowrap">
                 {meme.name}
               </b>
-              <p className="text-default-500 whitespace-nowrap">
+              <p className="text-center whitespace-nowrap ml-auto">
                 ❤️ {meme.likes}
               </p>
-              <Link href={meme.imageUrl}>🔗</Link>
+              <Link className="justify-end" href={meme.imageUrl}>
+                🔗
+              </Link>
             </CardFooter>
           </Card>
         ))}
