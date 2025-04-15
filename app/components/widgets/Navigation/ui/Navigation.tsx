@@ -18,7 +18,7 @@ import { NavigationProps } from '../types';
 export const Navigation = ({ serverThemeCookie }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar isBordered onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}

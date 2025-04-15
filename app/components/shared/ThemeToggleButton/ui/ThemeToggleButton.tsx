@@ -1,3 +1,5 @@
+import { Button } from '@heroui/button';
+
 interface ThemeToggleButtonProps {
   isDark: boolean;
   toggleTheme: () => void;
@@ -8,9 +10,10 @@ export const ThemeToggleButton: React.FC<ThemeToggleButtonProps> = ({
   toggleTheme,
 }) => {
   return (
-    <button
-      onClick={toggleTheme}
-      className="z-[2] h-12 w-12 cursor-pointer rounded-lg p-2 sm:right-6 hover:bg-gray-700"
+    <Button
+      onPress={toggleTheme}
+      variant="light"
+      className="h-12 w-12 cursor-pointer"
     >
       {isDark ? (
         <svg
@@ -33,6 +36,6 @@ export const ThemeToggleButton: React.FC<ThemeToggleButtonProps> = ({
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
         </svg>
       )}
-    </button>
+    </Button>
   );
 };

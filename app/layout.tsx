@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   description: 'A place to find the best memes',
 };
 
-
 export default async function RootLayout({
   children,
 }: Readonly<{
