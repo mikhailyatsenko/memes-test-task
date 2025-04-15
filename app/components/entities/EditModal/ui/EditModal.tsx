@@ -13,6 +13,7 @@ import { NumberInput } from '@heroui/number-input';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { EditModalSchema, editModalSchema } from '../model';
+import { EDIT_MODAL_CONSTANTS } from '../constants';
 
 export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -41,14 +42,17 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
   return (
     <>
       <Button color="primary" onPress={onOpen}>
-        Edit
+        {EDIT_MODAL_CONSTANTS.EDIT_BUTTON_TEXT}
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onClose}>
         <ModalContent>
           {(onClose) => (
-            <form id="edit-meme-form" onSubmit={handleSubmit(onSubmit)}>
+            <form
+              id={EDIT_MODAL_CONSTANTS.FORM_ID}
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <ModalHeader className="flex flex-col gap-1">
-                Edit Meme
+                {EDIT_MODAL_CONSTANTS.MODAL_TITLE}
               </ModalHeader>
               <ModalBody>
                 <div className="flex flex-col gap-4">
@@ -58,7 +62,7 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
                     render={({ field }) => (
                       <NumberInput
                         {...field}
-                        label="Id"
+                        label={EDIT_MODAL_CONSTANTS.ID_LABEL}
                         isDisabled
                         isReadOnly
                       />
@@ -71,8 +75,8 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
                   <Input
                     isRequired
                     {...register('name')}
-                    label="Name"
-                    placeholder="Enter name"
+                    label={EDIT_MODAL_CONSTANTS.NAME_LABEL}
+                    placeholder={EDIT_MODAL_CONSTANTS.NAME_PLACEHOLDER}
                     isInvalid={!!errors.name}
                     errorMessage={errors.name?.message}
                   />
@@ -80,8 +84,8 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
                   <Input
                     isRequired
                     {...register('imageUrl')}
-                    label="Image URL"
-                    placeholder="Enter image URL"
+                    label={EDIT_MODAL_CONSTANTS.IMAGE_URL_LABEL}
+                    placeholder={EDIT_MODAL_CONSTANTS.IMAGE_URL_PLACEHOLDER}
                     isInvalid={!!errors.imageUrl}
                     errorMessage={errors.imageUrl?.message}
                   />
@@ -91,9 +95,11 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
                     control={control}
                     render={({ field }) => (
                       <NumberInput
+                        min={EDIT_MODAL_CONSTANTS.MIN_LIKES}
+                        max={EDIT_MODAL_CONSTANTS.MAX_LIKES}
                         {...field}
-                        label="Likes"
-                        placeholder="Enter likes"
+                        label={EDIT_MODAL_CONSTANTS.LIKES_LABEL}
+                        placeholder={EDIT_MODAL_CONSTANTS.LIKES_PLACEHOLDER}
                         isInvalid={!!errors.likes}
                         errorMessage={errors.likes?.message}
                       />
@@ -103,10 +109,10 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="flat" onPress={onClose}>
-                  Close
+                  {EDIT_MODAL_CONSTANTS.CLOSE_BUTTON_TEXT}
                 </Button>
                 <Button color="primary" type="submit">
-                  Save
+                  {EDIT_MODAL_CONSTANTS.SAVE_BUTTON_TEXT}
                 </Button>
               </ModalFooter>
             </form>
