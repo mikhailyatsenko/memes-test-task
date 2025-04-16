@@ -1,5 +1,7 @@
 import { MemeListProps } from '../types';
-import { Card, CardBody, Image, Link, CardFooter } from '@heroui/react';
+import { Card, CardBody, Link, CardFooter } from '@heroui/react';
+import { Image } from '@/components/shared/ui/Image';
+import errorImg from '@/assets/error.webp';
 
 export const MemeList: React.FC<MemeListProps> = ({ memes }) => {
   return (
@@ -12,6 +14,7 @@ export const MemeList: React.FC<MemeListProps> = ({ memes }) => {
           <Card key={index} shadow="sm" className="w-full">
             <CardBody className="overflow-visible aspect-square p-0">
               <Image
+                errorSrc={errorImg.src}
                 alt={meme.name}
                 className="w-full object-cover"
                 radius="lg"
