@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Navigation } from './components/widgets/Navigation';
-import { HeroUIProvider } from '@heroui/react';
+import { HeroUIProvider, ToastProvider } from '@heroui/react';
 import { cookies } from 'next/headers';
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,6 +36,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
       >
         <HeroUIProvider>
+          <ToastProvider />
           <div className="h-screen relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full">
               <Navigation serverThemeCookie={serverThemeCookie} />

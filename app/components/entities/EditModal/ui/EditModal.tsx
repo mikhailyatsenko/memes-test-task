@@ -1,9 +1,9 @@
-import { Modal, Button, useDisclosure } from '@heroui/react';
+import { Modal, Button, useDisclosure, addToast } from '@heroui/react';
 import { EditModalProps, EditModalSchema } from '../types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { editModalSchema } from '../model';
-import { EDIT_MODAL_CONSTANTS } from '../constants';
+import { EDIT_MODAL_CONSTANTS, EDIT_MODAL_TOAST_CONSTANTS } from '../constants';
 import { onSave } from '../lib/onSave';
 import { useRouter } from 'next/navigation';
 import EditIcon from '@/assets/icons/edit-icon.svg';
@@ -35,7 +35,12 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
       onClose();
 
       router.refresh();
-      // toast.success('Meme updated successfully');
+
+      addToast({
+        title: EDIT_MODAL_TOAST_CONSTANTS.SUCCESS_TITLE,
+        description: EDIT_MODAL_TOAST_CONSTANTS.SUCCESS_DESCRIPTION,
+        color: 'secondary',
+      });
     } catch (error) {
       console.error(error);
     }

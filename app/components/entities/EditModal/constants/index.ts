@@ -21,3 +21,8 @@ export const EDIT_MODAL_CONSTANTS = {
 } as const;
 
 export const MEMES_STORAGE_KEY = 'memes';
+
+export const EDIT_MODAL_TOAST_CONSTANTS = {
+  SUCCESS_TITLE: 'Meme updated successfully',
+  SUCCESS_DESCRIPTION: 'Your are awesome!',
+} as const;
