@@ -1,23 +1,22 @@
 import { z } from 'zod';
+import { VALIDATION } from '../constants';
 
 export const editModalSchema = z.object({
   id: z.number().int(),
   name: z
     .string()
-    .min(3, 'Name must be at least 3 characters')
-    .max(100, 'Name must be less than 100 characters'),
+    .min(VALIDATION.NAME.MIN_LENGTH, VALIDATION.NAME.MIN_LENGTH_ERROR)
+    .max(VALIDATION.NAME.MAX_LENGTH, VALIDATION.NAME.MAX_LENGTH_ERROR),
   imageUrl: z
     .string()
-    .url('Please enter a valid URL')
+    .url(VALIDATION.IMAGE_URL.URL_ERROR)
     .refine(
-      (url) => /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(url),
-      'URL must point to an image file (jpg, jpeg, png, gif, webp, svg)',
+      (url) => VALIDATION.IMAGE_URL.ALLOWED_EXTENSIONS.test(url),
+      VALIDATION.IMAGE_URL.IMAGE_FORMAT_ERROR,
     ),
   likes: z
     .number()
     .int()
-    .min(0, 'Likes must be at least 0')
-    .max(99, 'Likes must be less than 100'),
+    .min(VALIDATION.LIKES.MIN, VALIDATION.LIKES.MIN_ERROR)
+    .max(VALIDATION.LIKES.MAX, VALIDATION.LIKES.MAX_ERROR),
 });
-
-export type EditModalSchema = z.infer<typeof editModalSchema>;

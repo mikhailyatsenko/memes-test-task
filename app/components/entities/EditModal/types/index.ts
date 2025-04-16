@@ -1,16 +1,13 @@
 import { Meme } from '@/data/types';
 import { UseFormRegister, Control, FieldErrors } from 'react-hook-form';
+import { editModalSchema } from '../model';
+import { z } from 'zod';
 
 export interface EditModalProps {
   meme: Meme;
 }
 
-export interface EditModalSchema {
-  id: number;
-  name: string;
-  imageUrl: string;
-  likes: number;
-}
+export type EditModalSchema = z.infer<typeof editModalSchema>;
 
 export interface EditModalContentProps {
   onClose: () => void;

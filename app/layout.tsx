@@ -4,6 +4,7 @@ import './globals.css';
 import { Navigation } from './components/widgets/Navigation';
 import { HeroUIProvider, ToastProvider } from '@heroui/react';
 import { cookies } from 'next/headers';
+
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default async function RootLayout({
   const cookieStore = await cookies();
   const themeCookie = cookieStore.get('theme');
   const serverThemeCookie = themeCookie?.value as 'dark' | 'light' | undefined;
+
   return (
     <html
       lang="en"

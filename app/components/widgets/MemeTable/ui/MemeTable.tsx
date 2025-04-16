@@ -1,4 +1,5 @@
 'use client';
+// Table component from HeroUI needs 'use client' to work properly
 
 import { MEMES_TABLE_ARIA_LABEL, MEMES_TABLE_COLUMNS } from '../constants';
 import { MemeTableProps } from '../types';

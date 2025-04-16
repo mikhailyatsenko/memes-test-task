@@ -1,7 +1,7 @@
 import { MemeList } from '@/components/widgets/MemeList';
 import { getMemesWithCookies } from '@/services/lib/getMemesWithCookies';
 import { cookies } from 'next/headers';
-import { MEMES_STORAGE_KEY } from '@/components/entities/EditModal/constants';
+import { MEMES_STORAGE_KEY } from '@/components/shared/constants';
 import { PageWrapper } from '@/components/shared/ui/PageWrapper';
 import { GRADIENT_TEXT_CLASSES } from '@/components/shared/constants';
 import { MEMES_LIST_PAGE_TITLE } from './constants';

@@ -4,3 +4,8 @@ export const MAIN_PAGE_DESCRIPTION =
 
 export const GRADIENT_TEXT_CLASSES =
   'uppercase bg-clip-text text-transparent bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 font-black';
+
+export const ERROR_TITLE = 'Something went wrong';
+export const ERROR_DESCRIPTION = 'An unknown error occurred';
+
+export const MEMES_STORAGE_KEY = 'memes';

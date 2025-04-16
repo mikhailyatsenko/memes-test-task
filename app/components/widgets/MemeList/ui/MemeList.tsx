@@ -1,17 +1,9 @@
 import { MemeListProps } from '../types';
-import {
-  Card,
-  // CardHeader,
-  CardBody,
-  Image,
-  Link,
-  CardFooter,
-} from '@heroui/react';
+import { Card, CardBody, Image, Link, CardFooter } from '@heroui/react';
 
 export const MemeList: React.FC<MemeListProps> = ({ memes }) => {
   return (
     <div>
-      <h1>Meme List</h1>
       <div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         style={{ justifyItems: 'center' }}

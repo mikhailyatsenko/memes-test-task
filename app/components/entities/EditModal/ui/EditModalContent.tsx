@@ -66,10 +66,10 @@ export const EditModalContent: React.FC<EditModalContentProps> = ({
               control={control}
               render={({ field }) => (
                 <NumberInput
+                  value={field.value}
+                  onValueChange={(newValue) => field.onChange(Number(newValue))} // to properly validate the number input
                   min={EDIT_MODAL_CONSTANTS.MIN_LIKES}
                   max={EDIT_MODAL_CONSTANTS.MAX_LIKES}
-                  {...field}
-                  onChange={(value) => field.onChange(Number(value))}
                   label={EDIT_MODAL_CONSTANTS.LIKES_LABEL}
                   placeholder={EDIT_MODAL_CONSTANTS.LIKES_PLACEHOLDER}
                   isInvalid={!!errors.likes}
