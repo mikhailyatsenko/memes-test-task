@@ -32,9 +32,9 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
   const onSubmit = (data: EditModalSchema) => {
     try {
       onSave(data);
+      onClose();
 
       router.refresh();
-      onClose();
 
       addToast({
         title: EDIT_MODAL_TOAST_CONSTANTS.SUCCESS_TITLE,
@@ -47,7 +47,7 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
   };
 
   return (
-    <>
+    <div>
       <Button
         color="secondary"
         onPress={onOpen}
@@ -65,6 +65,6 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
           handleSubmit={handleSubmit(onSubmit)}
         />
       </Modal>
-    </>
+    </div>
   );
 };
