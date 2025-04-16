@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Memes Directory App
+
+A modern web application for browsing and managing popular memes, built with Next.js and HeroUI.
+
+## Features
+
+- **Two View Modes**:
+  - Table view with editable meme properties
+  - Card-based grid view for visual browsing
+- **Meme Management**:
+  - Edit meme properties through modal dialogs
+  - Persistent storage of meme data
+  - Image preview support
+- **Responsive Design**:
+  - Works seamlessly on desktop and mobile devices
+  - Optimized for Chrome on Windows, macOS, and Android
+
+## Technical Stack
+
+- **Frontend**: Next.js, React, HeroUI
+- **Deployment**: Railway
+- **Data Storage**: Cookies
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
 
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Meme Properties
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Each meme in the directory contains the following properties:
+- **ID**: Read-only integer identifier
+- **Name**: Required string (3-100 characters)
+- **Image**: Required JPG image URL
+- **Likes**: Required integer (0-99, randomly generated)
 
-## Learn More
+## Development
 
-To learn more about Next.js, take a look at the following resources:
+The application is built using Next.js and follows modern React development practices. The UI is implemented using HeroUI components for a consistent and professional look.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This application is deployed on Railway. For deployment instructions, refer to the [Railway React Guide](https://docs.railway.com/guides/react).
 
-## Deploy on Vercel
+## Browser Support
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application is tested and optimized for:
+- Chrome (latest) on Windows
+- Chrome (latest) on macOS
+- Chrome (latest) on Android
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is open source and available under the MIT License.
