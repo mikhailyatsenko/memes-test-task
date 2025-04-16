@@ -4,7 +4,6 @@ import './globals.css';
 import { Navigation } from './components/widgets/Navigation';
 import { HeroUIProvider } from '@heroui/react';
 import { cookies } from 'next/headers';
-
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -31,14 +30,20 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={serverThemeCookie === 'dark' ? serverThemeCookie : ''}
+      className={`h-full ${serverThemeCookie === 'dark' ? serverThemeCookie : ''}`}
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
       >
         <HeroUIProvider>
-          <Navigation serverThemeCookie={serverThemeCookie} />
-          {children}
+          <div className="h-screen relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full">
+              <Navigation serverThemeCookie={serverThemeCookie} />
+            </div>
+            <main className="h-full w-full overflow-y-auto pt-[65px]">
+              {children}
+            </main>
+          </div>
         </HeroUIProvider>
       </body>
     </html>

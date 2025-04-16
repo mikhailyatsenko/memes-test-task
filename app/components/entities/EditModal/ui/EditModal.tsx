@@ -15,9 +15,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { EditModalSchema, editModalSchema } from '../model';
 import { EDIT_MODAL_CONSTANTS } from '../constants';
 import { onSave } from '../lib/onSave';
+import { useRouter } from 'next/navigation';
+import EditIcon from '@/assets/icons/edit-icon.svg';
 
 export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
 
   const {
     register,
@@ -38,6 +41,7 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
     try {
       onSave(data);
       onClose();
+      router.refresh();
     } catch (error) {
       console.error(error);
     }
@@ -45,7 +49,11 @@ export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
 
   return (
     <>
-      <Button color="primary" onPress={onOpen}>
+      <Button
+        color="secondary"
+        onPress={onOpen}
+        endContent={<EditIcon className="w-4 h-4 fill-white" />}
+      >
         {EDIT_MODAL_CONSTANTS.EDIT_BUTTON_TEXT}
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onClose}>

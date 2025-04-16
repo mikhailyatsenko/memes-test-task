@@ -1,3 +1,9 @@
+import { Spinner } from '@heroui/react';
+
 export default function MemesTableLoading() {
-  return <div>Loading...</div>;
+  return (
+    <div className="flex justify-center items-center h-full">
+      <Spinner />
+    </div>
+  );
 }

@@ -18,7 +18,9 @@ export const MemeTable: React.FC<MemeTableProps> = ({ memes }) => {
     <Table isStriped aria-label={MEMES_TABLE_ARIA_LABEL}>
       <TableHeader>
         {MEMES_TABLE_COLUMNS.map((column) => (
-          <TableColumn key={column.id}>{column.name}</TableColumn>
+          <TableColumn align="center" key={column.id}>
+            {column.name}
+          </TableColumn>
         ))}
       </TableHeader>
       <TableBody>

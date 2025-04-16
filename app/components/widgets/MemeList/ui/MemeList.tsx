@@ -17,13 +17,7 @@ export const MemeList: React.FC<MemeListProps> = ({ memes }) => {
         style={{ justifyItems: 'center' }}
       >
         {memes.map((meme, index) => (
-          <Card
-            key={index}
-            // isPressable
-            shadow="sm"
-            className="w-full max-w-[300px]"
-            // onPress={() => console.log('item pressed')}
-          >
+          <Card key={index} shadow="sm" className="w-full max-w-[300px]">
             <CardBody className="overflow-visible p-0">
               <Image
                 alt={meme.name}
