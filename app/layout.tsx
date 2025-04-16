@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Navigation } from './components/widgets/Navigation';
-import { HeroUIProvider, ToastProvider } from '@heroui/react';
+import { HeroUIProvider } from '@heroui/system';
+import { ToastProvider } from '@heroui/toast';
 import { cookies } from 'next/headers';
 
 const geistSans = Geist({

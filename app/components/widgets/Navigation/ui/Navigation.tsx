@@ -9,13 +9,13 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from '@heroui/navbar';
-// import Link from 'next/link';
+
 import { useState } from 'react';
 import { menuItems } from '../constants';
 import { ThemeToggle } from '@/components/entities/ToggleTheme';
 import { NavigationProps } from '../types';
 import { usePathname } from 'next/navigation';
-import { Link } from '@heroui/react';
+import { Link } from '@heroui/link';
 export const Navigation = ({ serverThemeCookie }: NavigationProps) => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);

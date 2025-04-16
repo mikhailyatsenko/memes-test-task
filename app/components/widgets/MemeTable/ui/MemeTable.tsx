@@ -1,8 +1,6 @@
 'use client';
 // Table component from HeroUI needs 'use client' to work properly
 
-import { MEMES_TABLE_ARIA_LABEL, MEMES_TABLE_COLUMNS } from '../constants';
-import { MemeTableProps } from '../types';
 import {
   Table,
   TableHeader,
@@ -10,7 +8,10 @@ import {
   TableBody,
   TableRow,
   TableCell,
-} from '@heroui/react';
+} from '@heroui/table';
+
+import { MEMES_TABLE_ARIA_LABEL, MEMES_TABLE_COLUMNS } from '../constants';
+import { MemeTableProps } from '../types';
 
 import { EditModal } from '@/components/entities/EditModal';
 

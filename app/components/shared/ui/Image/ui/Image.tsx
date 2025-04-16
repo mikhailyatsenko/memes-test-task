@@ -1,6 +1,6 @@
 'use client';
 
-import { Image as ImageComponent } from '@heroui/react';
+import { Image as ImageComponent } from '@heroui/image';
 import { ImageProps } from '../types';
 import { useState } from 'react';
 

@@ -1,16 +1,15 @@
-import {
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-} from '@heroui/react';
 import { Input } from '@heroui/input';
 import { NumberInput } from '@heroui/number-input';
 import { Controller } from 'react-hook-form';
 import { EDIT_MODAL_CONSTANTS } from '../constants';
 import { EditModalContentProps } from '../types';
-
+import {
+  ModalBody,
+  ModalHeader,
+  ModalFooter,
+  ModalContent,
+} from '@heroui/modal';
+import { Button } from '@heroui/button';
 export const EditModalContent: React.FC<EditModalContentProps> = ({
   onClose,
   register,

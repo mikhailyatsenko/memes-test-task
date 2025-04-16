@@ -1,5 +1,6 @@
 import { MemeListProps } from '../types';
-import { Card, CardBody, Link, CardFooter } from '@heroui/react';
+import { Card, CardBody, CardFooter } from '@heroui/card';
+import { Link } from '@heroui/link';
 import { Image } from '@/components/shared/ui/Image';
 import errorImg from '@/assets/error.webp';
 

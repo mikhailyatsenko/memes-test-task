@@ -1,4 +1,3 @@
-import { Modal, Button, useDisclosure, addToast } from '@heroui/react';
 import { EditModalProps, EditModalSchema } from '../types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,6 +7,9 @@ import { onSave } from '../lib/onSave';
 import { useRouter } from 'next/navigation';
 import EditIcon from '@/assets/icons/edit-icon.svg';
 import { EditModalContent } from './EditModalContent';
+import { useDisclosure, Modal } from '@heroui/modal';
+import { Button } from '@heroui/button';
+import { addToast } from '@heroui/toast';
 
 export const EditModal: React.FC<EditModalProps> = ({ meme }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
