@@ -9,16 +9,14 @@ export const MemeList: React.FC<MemeListProps> = ({ memes }) => {
         style={{ justifyItems: 'center' }}
       >
         {memes.map((meme, index) => (
-          <Card key={index} shadow="sm" className="w-full max-w-[300px]">
-            <CardBody className="overflow-visible p-0">
+          <Card key={index} shadow="sm" className="w-full">
+            <CardBody className="overflow-visible aspect-square p-0">
               <Image
                 alt={meme.name}
                 className="w-full object-cover"
                 radius="lg"
                 shadow="sm"
                 src={meme.imageUrl}
-                width={300}
-                height={300}
               />
             </CardBody>
             <CardFooter className="text-small flex flex-row justify-between flex-nowrap gap-4">

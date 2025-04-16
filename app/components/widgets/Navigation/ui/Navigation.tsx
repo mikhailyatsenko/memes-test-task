@@ -9,12 +9,13 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from '@heroui/navbar';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useState } from 'react';
 import { menuItems } from '../constants';
 import { ThemeToggle } from '@/components/entities/ToggleTheme';
 import { NavigationProps } from '../types';
 import { usePathname } from 'next/navigation';
+import { Link } from '@heroui/react';
 export const Navigation = ({ serverThemeCookie }: NavigationProps) => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,7 +37,12 @@ export const Navigation = ({ serverThemeCookie }: NavigationProps) => {
             isActive={pathname === item.href}
             key={item.label}
           >
-            <Link href={item.href}>{item.label}</Link>
+            <Link
+              color={pathname === item.href ? 'secondary' : 'foreground'}
+              href={item.href}
+            >
+              {item.label}
+            </Link>
           </NavbarItem>
         ))}
       </NavbarContent>
@@ -48,12 +54,14 @@ export const Navigation = ({ serverThemeCookie }: NavigationProps) => {
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item) => (
-          <NavbarMenuItem
-            className="data-[active=true]:text-secondary"
-            isActive={pathname === item.href}
-            key={item.label}
-          >
-            <Link href={item.href}>{item.label}</Link>
+          <NavbarMenuItem isActive={pathname === item.href} key={item.label}>
+            <Link
+              color={pathname === item.href ? 'secondary' : 'foreground'}
+              onPress={() => setIsMenuOpen(false)}
+              href={item.href}
+            >
+              {item.label}
+            </Link>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
